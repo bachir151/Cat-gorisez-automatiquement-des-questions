@@ -1,0 +1,8 @@
+SELECT TOP 80000 Title, Body, Tags, Id
+FROM Posts 
+WHERE PostTypeId = 1 AND ViewCount > 2 AND LEN(Tags) - LEN(REPLACE(Tags, '<','')) >= 4
+AND Score > 5 AND AnswerCount > 5
+
+
+
+vPour les résultats de la requêtes, voir : https://data.stackexchange.com/stackoverflow/query/1737887
