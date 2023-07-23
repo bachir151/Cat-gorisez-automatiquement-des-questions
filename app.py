@@ -21,10 +21,11 @@ def predict():
     doc = preprocessing(X, rejoin=True)
     doc =final_preprocessing(doc)
     prediction = predict_tags(doc)
+    prediction = doc #-----A supprimer
 
     # Inverse multilabel binarizer
     #tags_predict = multilabel_binarizer.inverse_transform(prediction)
-    return render_template("index.html", prediction_text = "The flower species is {}".format(prediction))
+    return render_template("index.html", prediction_text = "Les Tags prédits sont {}".format(prediction))
 
 if __name__ == "__main__":
     flask_app.run(debug=True)
