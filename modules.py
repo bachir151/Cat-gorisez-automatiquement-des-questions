@@ -110,7 +110,11 @@ error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctool
 
 <p>How to do next?</p>  C# """
 
-texte = "abc JAVA access 	accord 	account 	action 	activerecord 	activity 	activitythread 	adapter "
+texte = """ excel cell date apache apache file date switch cell case cell type value value cell break value type return value cell type row c row c c string date date date date fix problem',
+ 'validation error path require document mongodb path email path require path email user schema var new schema number type string type string email type string admin date date string save user object var user email password field null email null admin save user function err err console log user err user user return validation error value',
+ 'plan application wonder thanks',
+ 'execute laravel command version laravel follow command git bash php user table table user trigger follow error input file number thing find site work suggestion work',
+ 'position property custom desire font size color code self self self uicolor self font self uicolor alpha self self navigation bar bar button result text center origin label effect' """
 
 
 def predict_tags (texte) :
@@ -121,21 +125,22 @@ def predict_tags (texte) :
     texte_tfidf = tfidf_vectorizer.transform(texte)
 
     feature_names_tfidf = tfidf_vectorizer.get_feature_names()
-    X_tfidf_input = pd.DataFrame(texte_tfidf.todense(), columns=feature_names_tfidf)
+    X_tfidf_input = pd.DataFrame(texte_tfidf.toarray(), columns=feature_names_tfidf)
 
     prediction =model.predict(X_tfidf_input)
     tags_predict = multilabel_binarizer.inverse_transform(prediction)
-    print(prediction)
-    return tags_predict
+    tags= list({tag for tag_list in tags_predict for tag in tag_list if (len(tag_list) != 0)})
+    #print(X_tfidf_input)
+    return tags
 
-texte =preprocessing(texte, rejoin=True)
+"""texte =preprocessing(texte, rejoin=True)
 print(texte)
 print('----------------------------------------------------------------------------------')
 text2=final_preprocessing(texte)
 print(text2)
 print('-------------------------------------------------------------------------------------')
 print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-print (predict_tags (text2))
+print (predict_tags (text2))"""
 
 
 
