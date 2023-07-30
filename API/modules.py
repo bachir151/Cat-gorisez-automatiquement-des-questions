@@ -90,11 +90,10 @@ def final_preprocessing(texte):
 
 
 def predict_tags (texte) :
-    tfidf_vectorizer = joblib.load('tfidf_vectorizer_100_words.joblib')
-    multilabel_binarizer = joblib.load("multilabel_100_words.joblib")
-    #model = joblib.load("logit_tdidf_100_words.joblib")
-    model = joblib.load("rfc_final_model.joblib")
-    dict_tag =joblib.load("dict_tag.joblib")
+    tfidf_vectorizer = joblib.load('tfidf_vectorizer.joblib')
+    multilabel_binarizer = joblib.load("multilabel_binarizer.joblib")
+    model = joblib.load("logit_tdidf.joblib")
+    #model = joblib.load("rfc_final_model.joblib")
     texte = [texte]
     texte_tfidf = tfidf_vectorizer.transform(texte)
 
@@ -106,7 +105,7 @@ def predict_tags (texte) :
     # Récupérer les noms de toutes les classes (tags) dans l'ordre donné par MultiLabelBinarizer
     all_classes= multilabel_binarizer.classes_
 
-    # Nombre de classes à afficher (dans ce cas, les 3 premières prédictions)
+    # Nombre de classes à afficher (dans ce cas, les 5 premières prédictions)
     num_predictions_to_show = 5
     # Obtenir le nombre d'exemples dans X_test
     num_doc = X_tfidf_input.shape[0]
