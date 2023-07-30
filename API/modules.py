@@ -89,24 +89,6 @@ def final_preprocessing(texte):
     return join_text
 
 
-"""def predict_tags (texte) :
-    tfidf_vectorizer = joblib.load('tfidf_vectorizer_100_words.joblib')
-    multilabel_binarizer = joblib.load("multilabel_100_words.joblib")
-    model = joblib.load("logit_tdidf_100_words.joblib")
-    texte = [texte]
-    texte_tfidf = tfidf_vectorizer.transform(texte)
-
-    feature_names_tfidf = tfidf_vectorizer.get_feature_names()
-    X_tfidf_input = pd.DataFrame(texte_tfidf.toarray(), columns=feature_names_tfidf)
-
-    prediction =model.predict(X_tfidf_input)
-    tags_predict = multilabel_binarizer.inverse_transform(prediction)
-    tags= list({tag for tag_list in tags_predict for tag in tag_list if (len(tag_list) != 0)})
-
-    if len(tags) == 0:
-        tags = "Pas de tags prédits pour ce problème"
-    return tags"""
-
 def predict_tags (texte) :
     tfidf_vectorizer = joblib.load('tfidf_vectorizer_100_words.joblib')
     multilabel_binarizer = joblib.load("multilabel_100_words.joblib")
