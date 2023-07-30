@@ -1,3 +1,4 @@
+# Présentation
 Ce projet a pour objectif de créer une API de suggestion de tags en utilisant des modèles d'apprentissage automatique supervisés et non supervisés, afin de faciliter la catégorisation automatique des questions posées sur Stack Overflow.
 
 Le contenu du repository est organisé comme suit :
