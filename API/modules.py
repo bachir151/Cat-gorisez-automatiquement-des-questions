@@ -43,14 +43,14 @@ def preprocessing(texte, rejoin=True):
         # et les nombres qui apparaissent au début ou à la fin d'un mot
         texte_nettoye = re.sub(r"[^a-zA-Z\s]+|(http\S+)|(www\.\S+)|\d+", ' ', texte)
 
-        #----Tokenisation = réduction des phrases en mots élémentaires
+        #1----Tokenisation = réduction des phrases en mots élémentaires
         texte_tokenise = word_tokenize(texte_nettoye)
 
 
 
         stop_w = list(set(stopwords.words('english')))
 
-        #----Filtre des stop words
+        #2----Filtre des stop words
         texte_filtered_w = [w for w in texte_tokenise if not w in stop_w]
         texte_filtered_w2 = [w for w in texte_filtered_w if len(w) > 2]
 
@@ -61,7 +61,7 @@ def preprocessing(texte, rejoin=True):
 
 
 
-        #----Lemmatizer (base d'un mot)
+        #3----Lemmatizer (base d'un mot)
         # Mapping POS tags to WordNet POS tags
         wordnet_map = {'N': wordnet.NOUN, 'V': wordnet.VERB, 'R': wordnet.ADV, 'J': wordnet.ADJ}
 
